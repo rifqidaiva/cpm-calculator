@@ -9,16 +9,21 @@ const (
 	windowHeight = 720
 )
 
+var (
+	comicSans rl.Font
+)
+
 func CreatePert(pathListData [][]string) {
 	rl.InitWindow(windowWidth, windowHeight, "PERT Diagram")
+	rl.SetTargetFPS(60)
+	comicSans = rl.LoadFont("assets/fonts/open_sans/OpenSans-Regular.ttf")
+
 	defer rl.CloseWindow()
 
-	rl.SetTargetFPS(60)
-
 	nodes := []node{
-		newNode(rl.Vector2{X: 100, Y: 100}, 50),
-		newNode(rl.Vector2{X: 300, Y: 100}, 50),
-		newNode(rl.Vector2{X: 500, Y: 100}, 50),
+		newNode(rl.Vector2{X: 100, Y: 100}, 70),
+		newNode(rl.Vector2{X: 300, Y: 100}, 70),
+		newNode(rl.Vector2{X: 500, Y: 100}, 70),
 	}
 
 	for !rl.WindowShouldClose() {
@@ -41,4 +46,6 @@ func CreatePert(pathListData [][]string) {
 
 		rl.EndDrawing()
 	}
+
+	rl.UnloadFont(comicSans)
 }
