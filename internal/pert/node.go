@@ -70,12 +70,12 @@ func (n node) render() {
 	rl.DrawTextEx(comicSans, lateText, latePosition, 24, 0, rl.Black)
 }
 
-func newNode(position rl.Vector2, radius float32) node {
+func newNode(position rl.Vector2, radius float32, number int) node {
 	return node{
 		position: position,
 		radius:   radius,
 		color:    rl.RayWhite,
-		number:   123,
+		number:   number,
 		early:    123,
 		late:     123,
 	}
